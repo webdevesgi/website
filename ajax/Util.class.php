@@ -63,4 +63,23 @@ class Util {
     return $arr;
   }
 
+  public static function view($suffix = '_c')
+  {
+    return preg_replace('/\.([^.]+)$/', $suffix . '.$1', basename($_SERVER['SCRIPT_NAME']));
+  }
+
+  public static function adminFlashNoticeHelper()
+  {
+    if (isset($_SESSION['success']))
+    {
+      echo '<div class="message success"><p>' . $_SESSION['success'] . '</p></div>';
+      unset($_SESSION['success']);
+    }
+    if (isset($_SESSION['errors']))
+    {
+      echo '<div class="message errormsg"><p>' . implode('<br />', $_SESSION['errors']) . '</p></div>';
+      unset($_SESSION['errors']);
+    }
+  }
+
 }

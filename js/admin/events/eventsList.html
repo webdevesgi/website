@@ -1,0 +1,26 @@
+<table class="table table-hover">
+  <tr>
+    <th>id</th>
+    <th>Titre</th>
+    <th>Description</th>
+    <th>Commence à</th>
+    <th>Termine à</th>
+    <th>Date de création à</th>
+    <th>Dernière modification le</th>
+    <th></th>
+    <th></th>
+  </tr>
+  {{#each events}}
+  <tr>
+    <td>{{ this.id }}</td>
+    <td>{{ this.title }}</td>
+    <td>{{ this.description }}</td>
+    <td>{{ fullDate this.starts_at }}</td>
+    <td>{{ fullDate this.ends_at }}</td>
+    <td>{{ fullDate this.created_at }}</td>
+    <td>{{ fullDate this.updated_at }}</td>
+    <td>Éditer</td>
+    <td>Supprimer</td>
+  </tr>
+  {{/each}}
+</table>

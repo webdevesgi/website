@@ -3,4 +3,4 @@ require [
   'underscore',
   'jquery',
   'bootstrap'
-], (Handelbars, _) ->
+], (Handlebars, _) ->

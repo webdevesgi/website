@@ -18,11 +18,12 @@
       bootstrap: 'lib/bootstrap.min',
       underscore: 'lib/underscore.min',
       handlebars: 'lib/handlebars',
-      text: 'lib/text'
+      text: 'lib/text',
+      Shared: 'Shared.class'
     },
-    baseUrl: 'js/'
+    baseUrl: '/js/'
   });
 
-  require(['main']);
+  require(['admin/main']);
 
 }).call(this);

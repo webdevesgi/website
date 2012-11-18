@@ -17,6 +17,9 @@ require.config
     handlebars:  'lib/handlebars'
     text:        'lib/text'
 
-  baseUrl: 'js/'
+    # Helpers
+    Shared:      'Shared.class'
 
-require ['main']
+  baseUrl: '/js/'
+
+require ['admin/main']
