@@ -1,20 +1,23 @@
 <?php
 
-if(isset($_POST) && !empty($_POST)) {
-  if(isset($_POST['id']) && $_POST['id'] != null) {
-    // Accept request
-  } else {
-    return_error('"id" parameter is required');
-  }
-} else {
-  return_error('Parameters are required.');
-}
+require 'config.php';
 
-function return_error($message, $code = 500) {
-  return_json(array('code' => $code, 'message' => $message));
-}
+$methodAccepted = 'GET';
+$parametersRequired = $config['show']['required'];
 
-function return_json($array) {
-  header('Content-type: application/json');
-  echo json_encode($array);
+if(!Util::isRequestValid($methodAccepted, $parametersRequired))
+  Util::return_error('Invalid request parameters.');
+else {
+
+  $needEscape = array('id');
+  $parameters = Util::reverseIdCode(
+                  array_merge($_GET, Util::escapeRequestParameters($needEscape, 'GET')));
+
+  $requiredFields = $config['view']['return'];
+  $result = Util::pikachu(
+              'SELECT ' . $requiredFields . ' FROM events WHERE code = "' . $parameters['code'] . '"',
+              'select_one');
+
+  $result ? Util::return_json($result) : Util::return_error('This entity cannot be found.', 404);
+
 }
