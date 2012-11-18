@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config/db.php';
+require_once 'config/db_secret.php';
 
 $db_connection = mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
 $db_selected = mysql_select_db(DB_DBNAME);
