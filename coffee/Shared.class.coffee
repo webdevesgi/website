@@ -21,4 +21,9 @@ define ['handlebars', 'underscore', 'jquery'], (Handlebars, _) ->
         error: (result) ->
           fail (result)
 
+    fullDate: (datetime) ->
+      m = /^(\d{4})-(\d\d)-(\d\d) (\d\d):(\d\d):(\d\d)$/.exec(datetime)
+      m[3] + '/' + m[2] + '/' + m[1] + ' à ' + m[4] + ':' + m[5]
+
+
   new Shared

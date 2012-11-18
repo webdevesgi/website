@@ -3,9 +3,7 @@
 
   require(['Shared'], function(Shared) {
     Handlebars.registerHelper('fullDate', function(datetime) {
-      var m;
-      m = /^(\d{4})-(\d\d)-(\d\d) (\d\d):(\d\d):(\d\d)$/.exec(datetime);
-      return m[3] + '/' + m[2] + '/' + m[1] + ' à ' + m[4] + ':' + m[5];
+      return Shared.fullDate(datetime);
     });
     return Shared.ApiMakeRequest('events/list.php', {
       id: 'e00001'

@@ -18,7 +18,8 @@
       bootstrap: 'lib/bootstrap.min',
       underscore: 'lib/underscore.min',
       handlebars: 'lib/handlebars',
-      text: 'lib/text'
+      text: 'lib/text',
+      Shared: 'Shared.class'
     },
     baseUrl: 'js/'
   });
