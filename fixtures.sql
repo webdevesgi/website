@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.8
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
--- Host: mysql2
--- Generation Time: Nov 18, 2012 at 05:35 PM
--- Server version: 5.1.49
--- PHP Version: 5.3.6-11
+-- Client: localhost
+-- Généré le : Mar 20 Novembre 2012 à 00:35
+-- Version du serveur: 5.5.28
+-- Version de PHP: 5.3.10-1ubuntu3.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `rhannequin_wde`
+-- Base de données: `web-dev-esgi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
+-- Structure de la table `events`
 --
 
 CREATE TABLE IF NOT EXISTS `events` (
@@ -40,11 +40,34 @@ CREATE TABLE IF NOT EXISTS `events` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `events`
+-- Contenu de la table `events`
 --
 
 INSERT INTO `events` (`id`, `code`, `title`, `description`, `starts_at`, `ends_at`, `created_at`, `updated_at`) VALUES
-(1, 'e00001', 'First event', 'this is the first event', '2012-11-22 12:30:00', '2012-11-22 12:30:00', '2012-11-17 18:37:14', '2012-11-17 18:37:14');
+(1, 'e00001', 'Ruby et JavaScript dans une application', 'Utilisation de deux technologies de développement Web récentes.', '2012-11-22 12:30:00', '2012-11-22 12:30:00', '2012-11-17 18:37:14', '2012-11-17 18:37:14');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `talks`
+--
+
+CREATE TABLE IF NOT EXISTS `talks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `event_id` varchar(6) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `speaker` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `talks`
+--
+
+INSERT INTO `talks` (`id`, `event_id`, `title`, `description`, `speaker`) VALUES
+(1, 'e00001', 'Getting Started With Ruby', 'Introduction au langage Ruby et ses différentes utilisations dans le développement Web.', 'Rémy Hannequin'),
+(2, 'e00001', 'Underscore.js vs Lo-Dash.js', 'Comparaison des deux bibliothèques de fonctions utilitaires JavaScript les plus populaires.', 'Walter White');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

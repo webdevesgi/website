@@ -1,20 +1,22 @@
 <h1>{{ event.title }}</h1>
-<p><em>{{ getEventDate event.starts_at }}</em></p>
-<p class="lead">{{ event.description }}</p>
-{{#if event.program}}
-<h2>Programme</h2>
 <div class="row">
-  <div class="span6">
-    <h3>Titre du talk</h3>
-    <p><em>Présenté par : Rémy Hannequin</em></p>
-    <h4>Résumé</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc magna diam, pellentesque nec vestibulum ut, consectetur id lacus.</p>
-  </div>
-  <div class="span6">
-    <h3>Titre du talk</h3>
-    <p><em>Présenté par : Rémy Hannequin</em></p>
-    <h4>Résumé</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc magna diam, pellentesque nec vestibulum ut, consectetur id lacus.</p>
+  <div class="span4"><p><em>{{ getEventDate event.starts_at }}</em></p></div>
+  <div class="span4 offset4">
+    <em>Créé le {{ fullDate event.created_at }}
+    {{showIfUpdated event.created_at event.updated_at}}</em>
   </div>
 </div>
+<p class="lead">{{ event.description }}</p>
+{{#if event.talks.length}}
+  <h2>Programme</h2>
+  <div class="row">
+    {{#each event.talks}}
+      <div class="span6">
+        <h3>{{this.title}}</h3>
+        <p><em>Présenté par : {{this.speaker}}</em></p>
+        <h4>Résumé</h4>
+        <p>{{this.description}}</p>
+      </div>
+    {{/each}}
+  </div>
 {{/if}}

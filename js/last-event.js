@@ -8,6 +8,17 @@
       frenchDate = Shared.getFrenchDate(date);
       return str = frenchDate.day.slice(0, 1).toUpperCase() + frenchDate.day.slice(1) + ' ' + frenchDate.date + ' ' + frenchDate.month + ' à ' + frenchDate.hours + ':' + frenchDate.minutes + '.';
     });
+    Handlebars.registerHelper('fullDate', function(datetime) {
+      return Shared.fullDate(datetime);
+    });
+    Handlebars.registerHelper('showIfUpdated', function(var1, var2) {
+      var str;
+      str = '';
+      if (var1 !== var2) {
+        str = '<br />Dernière modification le ' + Shared.fullDate(var2);
+      }
+      return new Handlebars.SafeString(str);
+    });
     return Shared.ApiMakeRequest('events/last.php', {}, function(result) {
       if (!(result.error != null)) {
         return require(['text!../templates/last-event.html'], function(lastEventTpl) {
