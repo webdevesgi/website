@@ -1,14 +1,4 @@
-require [
-  'handlebars',
-  'underscore',
-  'Shared',
-  'jquery',
-  'bootstrap'
-], (Handlebars, _, Shared) ->
+require ['underscore', 'jquery', 'bootstrap'], (_) ->
 
-  Shared.ApiMakeRequest 'events/last.php', {}, (result) ->
-    if !result.error?
-      startDate = Shared.fullDate(result.starts_at)
-      str = 'Le prochain évènement aura lieu le ' + startDate + '. Il s\'intitule <em>' + result.title + '</em>.'
-      str += '<p><a class="btn btn-primary btn-large">En savoir plus &raquo;</a></p>'
-      $('.hero-unit .content').html str
+  script = $('#require_js').data('script')
+  require([script], ->) if !_.isEmpty(script)

@@ -1,0 +1,20 @@
+<h1>{{ event.title }}</h1>
+<p><em>{{ getEventDate event.starts_at }}</em></p>
+<p class="lead">{{ event.description }}</p>
+{{#if event.program}}
+<h2>Programme</h2>
+<div class="row">
+  <div class="span6">
+    <h3>Titre du talk</h3>
+    <p><em>Présenté par : Rémy Hannequin</em></p>
+    <h4>Résumé</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc magna diam, pellentesque nec vestibulum ut, consectetur id lacus.</p>
+  </div>
+  <div class="span6">
+    <h3>Titre du talk</h3>
+    <p><em>Présenté par : Rémy Hannequin</em></p>
+    <h4>Résumé</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc magna diam, pellentesque nec vestibulum ut, consectetur id lacus.</p>
+  </div>
+</div>
+{{/if}}
