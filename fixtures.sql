@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Mar 20 Novembre 2012 à 00:35
+-- Généré le : Mer 21 Novembre 2012 à 01:55
 -- Version du serveur: 5.5.28
 -- Version de PHP: 5.3.10-1ubuntu3.4
 
@@ -45,6 +45,31 @@ CREATE TABLE IF NOT EXISTS `events` (
 
 INSERT INTO `events` (`id`, `code`, `title`, `description`, `starts_at`, `ends_at`, `created_at`, `updated_at`) VALUES
 (1, 'e00001', 'Ruby et JavaScript dans une application', 'Utilisation de deux technologies de développement Web récentes.', '2012-11-22 12:30:00', '2012-11-22 12:30:00', '2012-11-17 18:37:14', '2012-11-17 18:37:14');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `subscribers`
+--
+
+CREATE TABLE IF NOT EXISTS `subscribers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `event_id` varchar(6) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `subscribers`
+--
+
+INSERT INTO `subscribers` (`id`, `event_id`, `email`, `firstname`, `lastname`) VALUES
+(1, 'e00001', 'remy.hannequin@gmail.com', 'Rémy', 'Hannequin'),
+(2, 'e00001', 'hank.moody@gmail.com', 'Hank', 'Moody'),
+(3, 'e00001', 'walter.white@gmail.com', 'Walter', 'White'),
+(4, 'e00001', 'abed.nadir@gmail.com', 'Abed', 'Nadir');
 
 -- --------------------------------------------------------
 

@@ -4,16 +4,19 @@ define ['handlebars', 'underscore', 'jquery'], (Handlebars, _) ->
 
     constructor: ->
 
+    apiUrl: '/ajax/scripts/'
+
     ApiMakeRequest: (url, params = {}, success = null, fail = null, method = 'GET') ->
       if !success?
         success = ->
       if !fail?
         fail = ->
 
-      url = '/ajax/scripts/' + url
+      url = @apiUrl + url
 
       $.ajax
         url: url
+        type: method
         data: params
         dataType: 'json'
         success: (result) ->

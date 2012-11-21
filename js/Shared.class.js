@@ -7,6 +7,8 @@
 
       function Shared() {}
 
+      Shared.prototype.apiUrl = '/ajax/scripts/';
+
       Shared.prototype.ApiMakeRequest = function(url, params, success, fail, method) {
         if (params == null) {
           params = {};
@@ -26,9 +28,10 @@
         if (!(fail != null)) {
           fail = function() {};
         }
-        url = '/ajax/scripts/' + url;
+        url = this.apiUrl + url;
         return $.ajax({
           url: url,
+          type: method,
           data: params,
           dataType: 'json',
           success: function(result) {
