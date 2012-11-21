@@ -19,8 +19,8 @@
     <td>{{ fullDate this.ends_at }}</td>
     <td>{{ fullDate this.created_at }}</td>
     <td>{{ fullDate this.updated_at }}</td>
-    <td>Éditer</td>
-    <td>Supprimer</td>
+    <td><a href="edit.php?id={{ this.id }}">Éditer</a></td>
+    <td><a href="delete.php?id={{ this.id }}">Supprimer</a></td>
   </tr>
   {{/each}}
 </table>

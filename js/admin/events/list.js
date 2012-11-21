@@ -9,7 +9,7 @@
       id: 'e00001'
     }, function(result) {
       if (!(result.error != null)) {
-        return require(['text!admin/events/eventsList.html'], function(eventsListTmpl) {
+        return require(['text!../../templates/admin/events/eventsList.html'], function(eventsListTmpl) {
           var template;
           template = Handlebars.compile(eventsListTmpl);
           return $('.h_events_list').html(template({
