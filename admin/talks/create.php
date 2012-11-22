@@ -3,7 +3,8 @@
 require '../prepend.php';
 
 if(isset($_POST) && !empty($_POST)) {
-  $query = 'INSERT INTO talks(event_id, title, description, speaker) VALUES (' .
+  $query = 'INSERT INTO talks(code, event_id, title, description, speaker) VALUES (' .
+    '"' . Util::generateKey() . '",' .
     '"' . $_POST['talk']['event_id'] . '",' .
     '"' . addslashes($_POST['talk']['title']) . '",' .
     '"' . addslashes($_POST['talk']['description']) . '",' .

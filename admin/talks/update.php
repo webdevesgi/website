@@ -7,7 +7,7 @@ if(isset($_POST) && !empty($_POST)) {
     'title = "' . addslashes($_POST['talk']['title']) . '",' .
     'description = "' . addslashes($_POST['talk']['description']) . '",' .
     'speaker = "' . $_POST['talk']['speaker'] . '" ' .
-  'WHERE id = ' . $_POST['talk']['id'];
+  'WHERE code = "' . $_POST['talk']['id'] . '"';
 
   Util::pikachu($query, 'update');
 }

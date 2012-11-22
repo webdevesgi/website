@@ -12,8 +12,6 @@ else {
   $needEscape = $parametersRequired;
   $parameters = array_merge($_GET, Util::escapeRequestParameters($needEscape, $methodAccepted));
   $requiredFields = $config['view']['return'];
-  if(isset($parameters['fields']))
-  $requiredFields .= ',' . $parameters['fields'];
 
   $query = 'SELECT ' . $requiredFields . ' FROM talks WHERE event_id = "' . $parameters['event_id'] . '"';
   $result = Util::pikachu($query);

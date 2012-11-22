@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Mer 21 Novembre 2012 à 01:55
+-- Généré le : Ven 23 Novembre 2012 à 00:30
 -- Version du serveur: 5.5.28
 -- Version de PHP: 5.3.10-1ubuntu3.4
 
@@ -79,6 +79,7 @@ INSERT INTO `subscribers` (`id`, `event_id`, `email`, `firstname`, `lastname`) V
 
 CREATE TABLE IF NOT EXISTS `talks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(6) NOT NULL,
   `event_id` varchar(6) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
@@ -90,9 +91,9 @@ CREATE TABLE IF NOT EXISTS `talks` (
 -- Contenu de la table `talks`
 --
 
-INSERT INTO `talks` (`id`, `event_id`, `title`, `description`, `speaker`) VALUES
-(1, 'e00001', 'Getting Started With Ruby', 'Introduction au langage Ruby et ses différentes utilisations dans le développement Web.', 'Rémy Hannequin'),
-(2, 'e00001', 'Underscore.js vs Lo-Dash.js', 'Comparaison des deux bibliothèques de fonctions utilitaires JavaScript les plus populaires.', 'Walter White');
+INSERT INTO `talks` (`id`, `code`, `event_id`, `title`, `description`, `speaker`) VALUES
+(1, 't00001', 'e00001', 'Getting Started With Ruby', 'Introduction au langage Ruby et ses différentes utilisations dans le développement Web.', 'Rémy Hannequin'),
+(2, 't00002', 'e00001', 'Underscore.js vs Lo-Dash.js', 'Comparaison des deux bibliothèques de fonctions utilitaires JavaScript les plus populaires.', 'Walter White');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

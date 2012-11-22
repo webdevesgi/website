@@ -9,8 +9,7 @@
     params = $('#require_js').data('params');
     eventId = params.event_id;
     return Shared.ApiMakeRequest('talks/list.php', {
-      event_id: eventId,
-      fields: 'id'
+      event_id: eventId
     }, function(result) {
       if (!(result.error != null)) {
         return require(['text!../../templates/admin/talks/talksList.html'], function(talksListTmpl) {
