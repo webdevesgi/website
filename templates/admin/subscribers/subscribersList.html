@@ -12,7 +12,7 @@
     <td>{{ this.lastname }}</td>
     <td>{{ this.firstname }}</td>
     <td>{{ this.email }}</td>
-    <td><a href="delete.php?id={{ this.id }}"><i class="icon-remove"></i></a></td>
+    <td><a href="delete.php?id={{ this.id }}&event_id={{ ../event_id }}"><i class="icon-remove"></i></a></td>
   </tr>
   {{/each}}
 </table>
