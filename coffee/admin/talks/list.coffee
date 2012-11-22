@@ -5,6 +5,6 @@ require ['Shared'], (Shared) ->
 
   Shared.ApiMakeRequest 'talks/list.php', {event_id: 'e00001', fields: 'id'}, (result) ->
     if !result.error?
-      require ['text!../../templates/admin/talks/talksList.html'], (eventsListTmpl) ->
-        template = Handlebars.compile(eventsListTmpl)
+      require ['text!../../templates/admin/talks/talksList.html'], (talksListTmpl) ->
+        template = Handlebars.compile(talksListTmpl)
         $('.h_talks_list').html template(talks: result)

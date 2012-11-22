@@ -19,8 +19,8 @@
     <td>{{ fullDate this.ends_at }}</td>
     <td><a href="edit.php?id={{ this.id }}"><i class="icon-edit"></i></a></td>
     <td><a href="delete.php?id={{ this.id }}"><i class="icon-remove"></i></a></td>
-    <td><a href="../talks/show.php?id={{ this.id }}">Programme</a></td>
-    <td><a href="../subscribers/show.php?id={{ this.id }}">Participants</a></td>
+    <td><a href="../talks/list.php?event_id={{ this.id }}">Programme</a></td>
+    <td><a href="../subscribers/list.php?event_id={{ this.id }}">Participants</a></td>
   </tr>
   {{/each}}
 </table>

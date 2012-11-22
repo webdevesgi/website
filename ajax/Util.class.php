@@ -84,13 +84,10 @@ class Util {
 
   public static function apiMakeRequest($url, $data = null) {
 
-    //TODO: change API URL
-    $apiUrl = 'http://wde/ajax/scripts/';
-
     $c = curl_init();
     curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($c, CURLOPT_HTTPHEADER, array('Accept: application/json', 'Content-Type: application/json'));
-    curl_setopt($c, CURLOPT_URL, $apiUrl . $url);
+    curl_setopt($c, CURLOPT_URL, API_URL . $url);
     if($data !== null) {
       curl_setopt($c, CURLOPT_POSTFIELDS, json_encode($data));
     }
