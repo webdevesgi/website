@@ -3,24 +3,18 @@
     <th>id</th>
     <th>Titre</th>
     <th>Description</th>
-    <th>Commence à</th>
-    <th>Termine à</th>
+    <th>Speaker</th>
     <th>Éditer</th>
     <th>Supprimer</th>
-    <th></th>
-    <th></th>
   </tr>
-  {{#each events}}
+  {{#each talks}}
   <tr>
     <td>{{ this.id }}</td>
     <td>{{ this.title }}</td>
     <td>{{ this.description }}</td>
-    <td>{{ fullDate this.starts_at }}</td>
-    <td>{{ fullDate this.ends_at }}</td>
+    <td>{{ this.speaker }}</td>
     <td><a href="edit.php?id={{ this.id }}"><i class="icon-edit"></i></a></td>
     <td><a href="delete.php?id={{ this.id }}"><i class="icon-remove"></i></a></td>
-    <td><a href="../talks/show.php?id={{ this.id }}">Programme</a></td>
-    <td><a href="../subscribers/show.php?id={{ this.id }}">Participants</a></td>
   </tr>
   {{/each}}
 </table>

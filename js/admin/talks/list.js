@@ -4,15 +4,16 @@
     Handlebars.registerHelper('fullDate', function(datetime) {
       return Shared.fullDate(datetime);
     });
-    return Shared.ApiMakeRequest('events/list.php', {
-      id: 'e00001'
+    return Shared.ApiMakeRequest('talks/list.php', {
+      event_id: 'e00001',
+      fields: 'id'
     }, function(result) {
       if (!(result.error != null)) {
-        return require(['text!../../templates/admin/events/eventsList.html'], function(eventsListTmpl) {
+        return require(['text!../../templates/admin/talks/talksList.html'], function(eventsListTmpl) {
           var template;
           template = Handlebars.compile(eventsListTmpl);
-          return $('.h_events_list').html(template({
-            events: result
+          return $('.h_talks_list').html(template({
+            talks: result
           }));
         });
       }
