@@ -2,8 +2,7 @@
 
 require '../prepend.php';
 
-$query = 'SELECT * FROM talks WHERE id = ' . $_GET['id'];
-$talk = Util::pikachu($query, 'select_one');
+$talk = Util::apiMakeRequest('talks/show.php?id=' . $_GET['id']);
 
 $title = 'Édition d\'un talk';
 $formUrl = 'update.php';

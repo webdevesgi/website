@@ -10,7 +10,7 @@ if($event) {
   $query = 'SELECT ' . $config['view']['talks'] . ' FROM talks WHERE event_id = "' . $event['id'] . '"';
   $talks = Util::pikachu($query);
 
-  $event['talks'] = Util::apiMakeRequest('talks/list.php?event_id=e00001');
+  $event['talks'] = Util::apiMakeRequest('talks/list.php?event_id=' . $event['id']);
 
   // Subscribers
   $query = 'SELECT ' . $config['view']['subscribers'] . ' FROM subscribers WHERE event_id = "' . $event['id'] . '"';
