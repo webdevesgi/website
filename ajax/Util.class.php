@@ -96,4 +96,23 @@ class Util {
     return json_decode($content, true);
   }
 
+  public static function generateKey()
+  {
+    return self::randomString(6);
+  }
+
+  public static function randomString($len)
+  {
+    $base = 'abcdefghjkmnpqrstwxyz123456789';
+    $max = strlen($base) - 1;
+    $code = '';
+    mt_srand((double)microtime() * 1000000);
+    while (strlen($code) < $len)
+    {
+      $code .= $base{mt_rand(0,$max)};
+    }
+
+    return $code;
+  }
+
 }
