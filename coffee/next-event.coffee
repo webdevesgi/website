@@ -1,13 +1,13 @@
 require ['underscore', 'handlebars','Shared', 'jquery'], (_, Handlebars, Shared) ->
 
-  Shared.ApiMakeRequest 'events/last.php', {}, (result) ->
+  Shared.ApiMakeRequest 'events/next.php', {}, (result) ->
     if !result.error?
       require [
-        'text!../templates/last-event.html',
+        'text!../templates/next-event.html',
         'text!../templates/subscribe-form.html',
         'text!../templates/subscribers.html'
-      ], (lastEventTpl, subscribeFormTpl, subscribersTpl) ->
-        eventTemplate = Handlebars.compile lastEventTpl
+      ], (nextEventTpl, subscribeFormTpl, subscribersTpl) ->
+        eventTemplate = Handlebars.compile nextEventTpl
         formTemplate = Handlebars.compile subscribeFormTpl
         subscribersTemplate = Handlebars.compile subscribersTpl
         $('.event').html eventTemplate(event: result)

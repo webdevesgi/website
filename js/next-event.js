@@ -3,11 +3,11 @@
 
   require(['underscore', 'handlebars', 'Shared', 'jquery'], function(_, Handlebars, Shared) {
     var handleSubscribe;
-    Shared.ApiMakeRequest('events/last.php', {}, function(result) {
+    Shared.ApiMakeRequest('events/next.php', {}, function(result) {
       if (!(result.error != null)) {
-        return require(['text!../templates/last-event.html', 'text!../templates/subscribe-form.html', 'text!../templates/subscribers.html'], function(lastEventTpl, subscribeFormTpl, subscribersTpl) {
+        return require(['text!../templates/next-event.html', 'text!../templates/subscribe-form.html', 'text!../templates/subscribers.html'], function(nextEventTpl, subscribeFormTpl, subscribersTpl) {
           var eventTemplate, formTemplate, subscribersTemplate;
-          eventTemplate = Handlebars.compile(lastEventTpl);
+          eventTemplate = Handlebars.compile(nextEventTpl);
           formTemplate = Handlebars.compile(subscribeFormTpl);
           subscribersTemplate = Handlebars.compile(subscribersTpl);
           $('.event').html(eventTemplate({
