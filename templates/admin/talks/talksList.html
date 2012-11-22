@@ -13,8 +13,13 @@
     <td>{{ this.title }}</td>
     <td>{{ this.description }}</td>
     <td>{{ this.speaker }}</td>
-    <td><a href="edit.php?id={{ this.id }}"><i class="icon-edit"></i></a></td>
-    <td><a href="delete.php?id={{ this.id }}"><i class="icon-remove"></i></a></td>
+    <td><a href="edit.php?id={{ this.id }}&event_id={{ ../event_id }}"><i class="icon-edit"></i></a></td>
+    <td><a href="delete.php?id={{ this.id }}&event_id={{ ../event_id }}"><i class="icon-remove"></i></a></td>
   </tr>
   {{/each}}
 </table>
+<p>
+  <a href="new.php?event_id={{ event_id }}">
+    <button class="btn btn-primary">Ajouter un talk</button>
+  </a>
+</p>

@@ -17,7 +17,7 @@
       <?php $startDate = explode(' ', $event['starts_at']) ?>
       <input class="input-small" type="text" name="event[starts_at][date]" value="<?php echo isset($startDate[0]) ? $startDate[0] : '' ?>">
       à
-      <input class="input-small" type="text" name="event[starts_at][time]" value="<?php echo isset($startDate[0]) ? $startDate[0] : '' ?>">
+      <input class="input-small" type="text" name="event[starts_at][time]" value="<?php echo isset($startDate[1]) ? $startDate[1] : '' ?>">
     </div>
   </div>
   <div class="control-group">
@@ -31,6 +31,9 @@
   </div>
   <div class="control-group">
     <div class="controls">
+      <?php if(isset($_GET['id'])): ?>
+        <input type="hidden" name="event[id]" value="<?php echo $_GET['id'] ?>" />
+      <?php endif; ?>
       <button type="submit" class="btn">Sauvegarder</button>
     </div>
   </div>

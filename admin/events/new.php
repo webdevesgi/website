@@ -11,6 +11,6 @@ $event = array(
 
 $title = 'Création d\'un évènement';
 $formUrl = 'create.php';
-$requireScript = 'admin/events/edit/new';
+$requireScript = 'admin/events/new';
 
 require '../layout.php';
