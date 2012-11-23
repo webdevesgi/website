@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Ven 23 Novembre 2012 à 00:30
+-- Généré le : Ven 23 Novembre 2012 à 15:42
 -- Version du serveur: 5.5.28
 -- Version de PHP: 5.3.10-1ubuntu3.4
 
@@ -45,6 +45,31 @@ CREATE TABLE IF NOT EXISTS `events` (
 
 INSERT INTO `events` (`id`, `code`, `title`, `description`, `starts_at`, `ends_at`, `created_at`, `updated_at`) VALUES
 (1, 'e00001', 'Ruby et JavaScript dans une application', 'Utilisation de deux technologies de développement Web récentes.', '2012-11-22 12:30:00', '2012-11-22 12:30:00', '2012-11-17 18:37:14', '2012-11-17 18:37:14');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ideas`
+--
+
+CREATE TABLE IF NOT EXISTS `ideas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(6) NOT NULL,
+  `type` enum('course','talk') NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `ideas`
+--
+
+INSERT INTO `ideas` (`id`, `code`, `type`, `title`, `description`, `email`, `firstname`, `lastname`) VALUES
+(1, 'i00001', 'course', 'TDD en PHP', 'Introduction à la méthode Test Driven Development avec PHP.', 'fabien@potencier.org', 'Fabien', 'Potencier');
 
 -- --------------------------------------------------------
 

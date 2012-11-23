@@ -12,3 +12,20 @@
 @media (max-width: 393px) {
   .hero-unit {padding: 20px;}
 }
+
+.ideas-form form {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.ideas-form .row {
+  margin-bottom: 40px;
+}
+
+.ideas-form .control-group.submit {
+  text-align: center;
+}
+
+.ideas-form .control-group.submit .controls {
+  margin-left: 0;
+}

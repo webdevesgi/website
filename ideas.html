@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Développement Web avancé ESGI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">Web dev @ ESGI</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/#about">À propos</a></li>
+              <li><a href="/#contact">Contact</a></li>
+              <li><a href="next-event.html">Prochain évènement</a></li>
+              <li><a href="ideas.html">Proposer un évènement</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Proposez un évènement</h1>
+
+      <div class="ideas-form">
+        <div class="row hide form-error">
+          <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            Une erreur s'est produite lors de l'enregistrement, veuillez recommencer.
+            <span class="error-msg"></span>
+          </div>
+        </div>
+        <div class="row hide form-success">
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            Votre proposition d'évènement a bien été enregistrée.
+          </div>
+        </div>
+        <form action="ideas/new.php" method="POST" class="form-horizontal">
+          <div class="row">
+            <div class="span4">
+              <label class="control-label" for="inputTitle">Titre</label>
+              <div class="controls">
+                <input type="text" id="inputTitle" name="idea[title]">
+              </div>
+            </div>
+            <div class="span3">
+              <label class="control-label" for="inputDescription">Description</label>
+              <div class="controls">
+                <textarea id="inputDescription" name="idea[description]" rows="5"></textarea>
+              </div>
+            </div>
+            <div class="span3">
+              <label class="control-label" for="inputType">Type</label>
+              <div class="controls">
+                <select name="idea[type]" id="inputType">
+                  <option>Choisissez un type</option>
+                  <option value="course">Cours</option>
+                  <option value="talk">Présentation</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span4">
+              <label class="control-label" for="inputEmail">Adresse e-mail</label>
+              <div class="controls">
+                <input type="text" id="inputEmail" name="idea[email]">
+              </div>
+            </div>
+            <div class="span3">
+              <label class="control-label" for="inputFirstname">Prénom</label>
+              <div class="controls">
+                <input type="text" id="inputFirstname" name="idea[firstname]">
+              </div>
+            </div>
+            <div class="span3">
+              <label class="control-label" for="inputLastname">Nom</label>
+              <div class="controls">
+                <input type="text" id="inputLastname" name="idea[lastname]">
+              </div>
+            </div>
+          </div>
+          <div class="control-group submit">
+            <div class="controls">
+              <button type="submit" class="btn btn-primary btn-large">Envoyer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <h2>Propositions en cours</h2>
+
+      <div class="current-ideas"></div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Développement Web avancé ESGI 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <script id="require_js" data-script="ideas" data-params='{}' data-main="js/init" src="js/lib/require.js"></script>
+
+  </body>
+</html>
