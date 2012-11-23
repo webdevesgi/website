@@ -2,9 +2,12 @@
 
 require '../prepend.php';
 
-$talk = Util::apiMakeRequest('talks/show.php?id=' . $_GET['id']);
-
 $title = 'Édition d\'un talk';
-$formUrl = 'update.php';
+$requireScript = 'admin/talks/edit';
+$requireParams = array(
+  'formUrl' => 'talks/update.php',
+  'eventId' => $_GET['event_id'],
+  'talkId'  => $_GET['id']
+);
 
 require '../layout.php';
