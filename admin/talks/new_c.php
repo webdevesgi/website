@@ -6,4 +6,8 @@
   </a>
 </p>
 
-<?php include '_form.php' ?>
+<div class="h_talk">
+  <div class="progress progress-striped">
+    <div class="bar" style="width: 50%;"></div>
+  </div>
+</div>

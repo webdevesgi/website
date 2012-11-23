@@ -9,7 +9,7 @@ $talk = array(
 );
 
 $title = 'Création d\'un talk';
-$formUrl = 'create.php';
 $requireScript = 'admin/talks/new';
+$requireParams = array('formUrl' => 'talks/new.php', 'eventId' => $_GET['event_id']);
 
 require '../layout.php';
