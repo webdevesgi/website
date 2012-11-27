@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Ven 23 Novembre 2012 à 15:42
+-- Généré le : Mar 27 Novembre 2012 à 15:12
 -- Version du serveur: 5.5.28
 -- Version de PHP: 5.3.10-1ubuntu3.4
 
@@ -55,7 +55,7 @@ INSERT INTO `events` (`id`, `code`, `title`, `description`, `starts_at`, `ends_a
 CREATE TABLE IF NOT EXISTS `ideas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(6) NOT NULL,
-  `type` enum('course','talk') NOT NULL,
+  `type` enum('course','talk','hackathon') NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `email` varchar(50) NOT NULL,
