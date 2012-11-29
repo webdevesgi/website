@@ -1,0 +1,51 @@
+<form class="form-horizontal" action="{{ formUrl }}" method="POST" id="idea-form">
+  <div class="control-group">
+    <label class="control-label" for="inputTitle">Titre</label>
+    <div class="controls">
+      <input class="input-xxlarge" type="text" id="inputTitle" placeholder="ex : Un backend avec Backbone.js" name="idea[title]" value="{{ idea.title }}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputDescription">Description</label>
+    <div class="controls">
+      <textarea id="inputDescription" name="idea[description]" rows="7">{{ idea.description }}</textarea>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputType">Type</label>
+    <div class="controls">
+      <select name="idea[type]" id="inputType">
+        <option>Choisissez un type</option>
+        <option value="course"{{selectOption idea.type 'course'}}>Cours</option>
+        <option value="talk"{{selectOption idea.type 'talk'}}>Présentation</option>
+        <option value="hackathon"{{selectOption idea.type 'hackathon'}}>Hackathon</option>
+      </select>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">E-mail</label>
+    <div class="controls">
+      <input class="input" type="text" id="inputEmail" placeholder="ex : Marley" name="idea[email]" value="{{ idea.email }}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputFirstname">Prénom</label>
+    <div class="controls">
+      <input class="input" type="text" id="inputFirstname" placeholder="ex : Bob" name="idea[firstname]" value="{{ idea.firstname }}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputLastname">Nom</label>
+    <div class="controls">
+      <input class="input" type="text" id="inputLastname" placeholder="ex : Marley" name="idea[lastname]" value="{{ idea.lastname }}">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      {{#if idea.id}}
+        <input type="hidden" name="idea[id]" value="{{ idea.id }}" />
+      {{/if}}
+      <button type="submit" class="btn">Sauvegarder</button>
+    </div>
+  </div>
+</form>

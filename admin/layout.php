@@ -28,6 +28,8 @@
               <li class="nav-header">Évènements</li>
               <li><a href="/admin/events/list.php">Liste</a></li>
               <li><a href="/admin/events/new.php">Ajouter</a></li>
+              <li class="nav-header">Propositions</li>
+              <li><a href="/admin/ideas/list.php">Liste</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
