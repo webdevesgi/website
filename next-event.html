@@ -64,6 +64,78 @@
 
     </div> <!-- /container -->
 
+    <script id="last-event-template" type="text/x-template">
+      <h1>{{ event.title }}</h1>
+      <div class="row">
+        <div class="span4"><p><em>{{ getEventDate event.starts_at }}</em></p></div>
+        <div class="span4 offset4">
+          <em>Créé le {{ fullDate event.created_at }}
+          {{showIfUpdated event.created_at event.updated_at}}</em>
+        </div>
+      </div>
+      <p class="lead">{{ event.description }}</p>
+      {{#if event.talks.length}}
+        <h2>Programme</h2>
+        <div class="row">
+          {{#each event.talks}}
+            <div class="span6">
+              <h3>{{this.title}}</h3>
+              <p><em>Présenté par : {{this.speaker}}</em></p>
+              <h4>Résumé</h4>
+              <p>{{this.description}}</p>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+    </script>
+
+    <script id="suscribers-form-template" type="text/x-template">
+      <div class="row hide form-error">
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          Une erreur s'est produite lors de votre inscription, veuillez recommencer.
+          <span class="error-msg"></span>
+        </div>
+      </div>
+      <div class="row hide form-success">
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          Votre inscription a bien été enregistrée.
+        </div>
+      </div>
+      <form id="event_subscribe_form" action="subscribers/new.php" method="POST">
+        <h2>S'inscrire</h2>
+        <div class="row">
+          <div class="span6">
+            <label for="subscriber-lastname">Nom</label>
+            <input type="text" id="subscriber-lastname" name="subscriber[lastname]" />
+          </div>
+          <div class="span6">
+            <label for="subscriber-firstname">Prénom</label>
+            <input type="text" id="subscriber-firstname" name="subscriber[firstname]" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <label for="subscriber-email">Adresse e-mail <em>(ne sera pas divulguée)</em></label>
+            <input type="text" id="subscriber-email" name="subscriber[email]" />
+          </div>
+          <div class="span6">
+            <input type="hidden" id="event_id" name="subscriber[event_id]" value="{{ event_id }}" />
+            <input class="btn btn-primary" type="submit" value="S'inscrire" />
+          </div>
+        </div>
+      </form>
+    </script>
+
+    <script id="suscribers-template" type="text/x-template">
+      <ul>
+        {{#each subscribers}}
+        <li>{{this.firstname}} {{this.lastname}}</li>
+        {{/each}}
+      </ul>
+    </script>
+
     <script id="require_js" data-script="next-event" data-params='{}' data-main="js/init" src="js/lib/require.js"></script>
 
   </body>

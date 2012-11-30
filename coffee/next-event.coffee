@@ -2,19 +2,20 @@ require ['underscore', 'handlebars','Shared', 'jquery'], (_, Handlebars, Shared)
 
   Shared.ApiMakeRequest 'events/next.php', {}, (result) ->
     if !result.error?
-      require [
-        'text!../templates/next-event.html',
-        'text!../templates/subscribe-form.html',
-        'text!../templates/subscribers.html'
-      ], (nextEventTpl, subscribeFormTpl, subscribersTpl) ->
-        eventTemplate = Handlebars.compile nextEventTpl
-        formTemplate = Handlebars.compile subscribeFormTpl
-        subscribersTemplate = Handlebars.compile subscribersTpl
-        $('.event').html eventTemplate(event: result)
-        $('.subscribe').html formTemplate(event_id: result.id)
-        $('.subscribers').html subscribersTemplate(subscribers: result.subscribers)
 
-        handleSubscribe()
+      nextEventTpl =     $('#last-event-template').text()
+      subscribeFormTpl = $('#suscribers-form-template').text()
+      subscribersTpl =   $('#suscribers-template').text()
+
+      eventTemplate =       Handlebars.compile nextEventTpl
+      formTemplate =        Handlebars.compile subscribeFormTpl
+      subscribersTemplate = Handlebars.compile subscribersTpl
+
+      $('.event').html       eventTemplate(event: result)
+      $('.subscribe').html   formTemplate(event_id: result.id)
+      $('.subscribers').html subscribersTemplate(subscribers: result.subscribers)
+
+      handleSubscribe()
 
 
   handleSubscribe = ->

@@ -124,6 +124,21 @@
 
     </div> <!-- /container -->
 
+    <script id="ideas-template" type="text/x-template">
+      {{#each ideas}}
+        <div class="row">
+          <div class="span12">
+            <h3>{{ this.title }}</h3>
+            <p>Type : {{ this.type }}</p>
+            <p><em>Proposé par : {{ this.firstname }} {{ this.lastname }}</em></p>
+            <h4>Résumé</h4>
+            <p>{{ this.description }}</p>
+          </div>
+        </div>
+      {{/each}}
+
+    </script>
+
     <script id="require_js" data-script="ideas" data-params='{}' data-main="js/init" src="js/lib/require.js"></script>
 
   </body>
