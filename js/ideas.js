@@ -5,14 +5,13 @@
     var refreshIdeas;
     refreshIdeas = function() {
       return Shared.ApiMakeRequest('ideas/list.php', {}, function(result) {
+        var ideasTpl, template;
         if (!(result.error != null)) {
-          return require(['text!../templates/ideas.html'], function(ideasTpl) {
-            var template;
-            template = Handlebars.compile(ideasTpl);
-            return $('.current-ideas').html(template({
-              ideas: result
-            }));
-          });
+          ideasTpl = $('#ideas-template').text();
+          template = Handlebars.compile(ideasTpl);
+          return $('.current-ideas').html(template({
+            ideas: result
+          }));
         }
       });
     };

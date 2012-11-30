@@ -3,9 +3,9 @@ require ['underscore', 'handlebars','Shared', 'jquery'], (_, Handlebars, Shared)
   refreshIdeas = ->
     Shared.ApiMakeRequest 'ideas/list.php', {}, (result) ->
       if !result.error?
-        require ['text!../templates/ideas.html'], (ideasTpl) ->
-          template = Handlebars.compile ideasTpl
-          $('.current-ideas').html template(ideas: result)
+        ideasTpl = $('#ideas-template').text()
+        template = Handlebars.compile ideasTpl
+        $('.current-ideas').html template(ideas: result)
 
   $('.ideas-form form').submit (e)->
     e.preventDefault()
